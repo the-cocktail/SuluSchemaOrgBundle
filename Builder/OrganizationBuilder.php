@@ -9,7 +9,7 @@ use Spatie\SchemaOrg\Schema;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Exception\SchemaException;
 
-class OrganizationBuilder implements SchemaOrgBuilderInterface
+class OrganizationBuilder implements BuilderInterface
 {
     const KEY = 'schema_organization';
 

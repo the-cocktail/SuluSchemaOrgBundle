@@ -46,7 +46,7 @@ class StructureMapper
         return $model->buildSchema();
     }
 
-    private function parseModel(SchemaModel $model, StructureInterface $structure, array $properties)
+    private function parseModel(SchemaModel $model, StructureInterface $structure, array $properties): void
     {
         $this->propertyMapper->parseProperties($properties, $model);
 
@@ -105,15 +105,15 @@ class StructureMapper
         return empty($defined) ? null: reset($defined);
     }
 
-    private function creativeEnhancer(SchemaModel $model, StructureBridge $structure)
+    private function creativeEnhancer(SchemaModel $model, StructureBridge $structure): void
     {
         $partial = $model->buildSchema();
         if (!$partial instanceof CreativeWorkContract) {
             return;
         }
         $document = $structure->getDocument();
-        if ($document instanceof WorkflowStageBehavior) {
-            $model->setProperty('datePublished', $document->getPublished()->format('c'));
+        if ($document instanceof WorkflowStageBehavior && ($date = $document->getPublished())) {
+            $model->setProperty('datePublished', $date->format('c'));
         }
     }
 

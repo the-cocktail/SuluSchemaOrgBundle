@@ -41,7 +41,7 @@ class SchemaModel
         $this->properties[$property] = $value;
     }
     
-    public function addChild(SchemaModel $model, string $method)
+    public function addChild(SchemaModel $model, string $method): void
     {
         $this->children[$method] = $model;
     }
@@ -51,7 +51,7 @@ class SchemaModel
         return $this->children;
     }
 
-    public function setMaster(bool $master = true)
+    public function setMaster(bool $master = true): void
     {
         $this->master = $master;
     }

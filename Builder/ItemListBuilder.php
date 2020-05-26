@@ -1,20 +1,17 @@
 <?php
 
-declare(strict_types=1);
-
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Builder;
 
 use Spatie\SchemaOrg\BaseType;
 use Spatie\SchemaOrg\Schema;
 
-class BreadcrumbBuilder implements BuilderInterface
+class ItemListBuilder implements BuilderInterface
 {
-    const KEY = 'breadcrumb';
-    private array $schemaConfig;
+    const KEY = 'itemList';
 
     public function build(string $key, $data): BaseType
     {
-        $breadcrumb = Schema::breadcrumbList();
+        $itemList = Schema::itemList();
         $items = [];
         $i = 1;
         foreach ($data as $value) {
@@ -27,9 +24,9 @@ class BreadcrumbBuilder implements BuilderInterface
             $items[] = $listItem;
             ++$i;
         }
-        $breadcrumb->itemListElement($items);
+        $itemList->itemListElement($items);
 
-        return $breadcrumb;
+        return $itemList;
     }
 
     public function support(string $key): bool

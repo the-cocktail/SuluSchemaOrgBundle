@@ -5,7 +5,7 @@ namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Builder;
 use Spatie\SchemaOrg\BaseType;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Exception\SchemaException;
 
-interface SchemaOrgBuilderInterface
+interface BuilderInterface
 {
     /**
      * Build all Schemas and return SchemaOrg data

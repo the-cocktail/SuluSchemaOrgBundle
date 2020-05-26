@@ -46,13 +46,11 @@ class SchemaOrgFactory
     {
         /** @var BaseType[] $schemas */
         $schemas = [];
-        
+
         if ($structure = $request->attributes->get('structure')) {
-            if ($pageSchema = $this->structureMapper->parseStructure($structure)) {
-                $schemas[] = $pageSchema;
-            }
+            $schemas = $this->structureMapper->parseStructure($structure);
         }
-        
+
         foreach ($this->attributes->getAttributes() as $key => $attributes) {
             foreach ($this->builders as $builder) {
                 if ($builder->support($key)) {

@@ -9,13 +9,10 @@ use Spatie\SchemaOrg\Contracts\CreativeWorkContract;
 use Spatie\SchemaOrg\Schema;
 use Sulu\Component\Content\Compat\Structure\StructureBridge;
 use Sulu\Component\Content\Compat\StructureInterface;
-use Sulu\Component\Content\Document\Behavior\LocalizedAuthorBehavior;
 use Sulu\Component\Content\Document\Behavior\WorkflowStageBehavior;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Analyzer\SchemaOrgAnalyzerInterface;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Exception\SchemaException;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Exception\SchemaTypeNotFound;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Exception\SchemaTypeNotImplemented;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Mapper\PropertyMapper;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Model\SchemaModel;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Transformer\TransformerChain;
 
@@ -34,16 +31,26 @@ class StructureMapper
         $this->transformerChain = $transformerChain;
         $this->config = $config;
     }
-    
-    public function parseStructure(StructureInterface $structure): ?BaseType
-    {
-        if (!$model = $this->getSchemaModel($structure)) {
-            return null;
-        }
-        $properties = $structure->getProperties(true);
-        $this->parseModel($model, $structure, $properties);
 
-        return $model->buildSchema();
+    /**
+     * @param StructureInterface $structure
+     * @return BaseType[]
+     *
+     * @throws SchemaTypeNotFound
+     * @throws SchemaTypeNotImplemented
+     */
+    public function parseStructure(StructureInterface $structure): array
+    {
+        $properties = $structure->getProperties(true);
+        $schemas = [];
+        foreach ($this->getSchemaModels($structure) as $model) {
+            $this->parseModel($model, $structure, $properties);
+            if ($model->hasProperties()) {
+                $schemas[] = $model->buildSchema();
+            }
+        }
+
+        return $schemas;
     }
 
     private function parseModel(SchemaModel $model, StructureInterface $structure, array $properties): void
@@ -68,10 +75,17 @@ class StructureMapper
         }
     }
 
-    private function getSchemaModel(StructureInterface $structure): ?SchemaModel
+    /**
+     * @param StructureInterface $structure
+     * @return SchemaModel[]
+     *
+     * @throws SchemaTypeNotFound
+     * @throws SchemaTypeNotImplemented
+     */
+    private function getSchemaModels(StructureInterface $structure): array
     {
         if (!$structure instanceof StructureBridge) {
-            return null;
+            return [];
         }
 
         $metadata = $structure->getStructure();
@@ -102,7 +116,7 @@ class StructureMapper
                 $defined[$itemscope]->addChild($model, $itemprop);
             }
         }
-        return empty($defined) ? null: reset($defined);
+        return $defined;
     }
 
     private function creativeEnhancer(SchemaModel $model, StructureBridge $structure): void

@@ -28,10 +28,8 @@ class PageSelectionTransformer implements TransformerInterface
         foreach ($linkItems as $linkItem) {
             $listItem = Schema::listItem();
             $listItem->position($i);
-            $item = Schema::thing();
-            $item->setProperty('url', $linkItem->getUrl());
-            $item->name($linkItem->getTitle());
-            $listItem->item($item);
+            $listItem->name($linkItem->getTitle());
+            $listItem->url($linkItem->getUrl());
             $items[] = $listItem;
             ++$i;
         }

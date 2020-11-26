@@ -13,7 +13,7 @@ class SchemaModel
     private string $schema;
     private array $properties = [];
     private bool $master = false;
-    
+
     /**
      * @var SchemaModel[]
      */
@@ -40,18 +40,23 @@ class SchemaModel
         }
         $this->properties[$property] = $value;
     }
-    
-    public function addChild(SchemaModel $model, string $method)
+
+    public function hasProperties(): bool
+    {
+        return !empty($this->properties);
+    }
+
+    public function addChild(SchemaModel $model, string $method): void
     {
         $this->children[$method] = $model;
     }
-    
+
     public function getChildren(): array
     {
         return $this->children;
     }
 
-    public function setMaster(bool $master = true)
+    public function setMaster(bool $master = true): void
     {
         $this->master = $master;
     }
@@ -76,11 +81,11 @@ class SchemaModel
         foreach ($this->properties as $property => $value) {
             $schema->$property($value);
         }
-        
+
         foreach ($this->children as $method => $child) {
             $schema->$method($child->buildSchema());
         }
-        
+
         return $schema;
     }
 }

@@ -8,7 +8,7 @@ use Spatie\SchemaOrg\EducationalOrganization;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Analyzer\SchemaOrgAnalyzerInterface;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\SchemaOrgBuilderInterface;
+use TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\BuilderInterface;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Extension\ExtensionChain;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\HttpFoundation\SchemaAttributes;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Mapper\AutoMapper;
@@ -19,7 +19,7 @@ class SchemaOrgFactory
     const TWIG_KEY = '<!-- SCHEMAS -->';
 
     /**
-     * @var SchemaOrgBuilderInterface[]
+     * @var BuilderInterface[]
      */
     private array $builders;
 
@@ -37,7 +37,7 @@ class SchemaOrgFactory
         $this->extensionChain = $extensionChain;
     }
 
-    public function addBuilder(SchemaOrgBuilderInterface $builders): void
+    public function addBuilder(BuilderInterface $builders): void
     {
         $this->builders[] = $builders;
     }
@@ -46,13 +46,11 @@ class SchemaOrgFactory
     {
         /** @var BaseType[] $schemas */
         $schemas = [];
-        
+
         if ($structure = $request->attributes->get('structure')) {
-            if ($pageSchema = $this->structureMapper->parseStructure($structure)) {
-                $schemas[] = $pageSchema;
-            }
+            $schemas = $this->structureMapper->parseStructure($structure);
         }
-        
+
         foreach ($this->attributes->getAttributes() as $key => $attributes) {
             foreach ($this->builders as $builder) {
                 if ($builder->support($key)) {

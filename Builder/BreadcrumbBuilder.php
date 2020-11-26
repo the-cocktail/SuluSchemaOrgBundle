@@ -7,7 +7,7 @@ namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Builder;
 use Spatie\SchemaOrg\BaseType;
 use Spatie\SchemaOrg\Schema;
 
-class BreadcrumbBuilder implements SchemaOrgBuilderInterface
+class BreadcrumbBuilder implements BuilderInterface
 {
     const KEY = 'breadcrumb';
     private array $schemaConfig;

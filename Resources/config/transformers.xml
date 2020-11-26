@@ -11,6 +11,13 @@
             <tag name="sulu.context" context="website"/>
         </service>
 
+        <service id="TheCocktail\Bundle\SuluSchemaOrgBundle\Transformer\PageSelectionTransformer">
+            <argument type="service" id="sulu_page.link_tag.page_provider"/>
+            <argument type="service" id="request_stack"/>
+            <tag name="sulu.schema_org.transformer" alias="page_selection"/>
+            <tag name="sulu.context" context="website"/>
+        </service>
+
         <service id="TheCocktail\Bundle\SuluSchemaOrgBundle\Transformer\PageTreeRouteTransformer">
             <tag name="sulu.schema_org.transformer" alias="page_tree_route"/>
             <tag name="sulu.context" context="website"/>

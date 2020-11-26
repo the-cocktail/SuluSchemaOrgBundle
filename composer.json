@@ -13,7 +13,7 @@
         ]
     },
     "require": {
-        "php": "=>7.4",
+        "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.0 || ^2.0 || ^3.0",
         "spatie/schema-org": "^2.13",
         "sulu/sulu": "^2.0.6",

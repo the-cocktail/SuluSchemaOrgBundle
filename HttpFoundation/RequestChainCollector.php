@@ -12,7 +12,7 @@ class RequestChainCollector
     /**
      * @var SchemaOrgAnalyzerInterface[]
      */
-    private array $analyzers;
+    private array $analyzers = [];
 
     public function addAnalyzer(SchemaOrgAnalyzerInterface $analyzer): void
     {

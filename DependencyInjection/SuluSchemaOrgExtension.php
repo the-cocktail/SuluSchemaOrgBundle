@@ -16,7 +16,10 @@ class SuluSchemaOrgExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter('sulu.schema_org.config.organization', $config['organization']);
+
+        if (array_key_exists('organization', $config)) {
+            $container->setParameter('sulu.schema_org.config.organization', $config['organization']);
+        }
         $container->setParameter('sulu.schema_org.config.extensions', $config['extensions']);
         $container->setParameter('sulu.schema_org.config.image_format', $config['image_format']);
 

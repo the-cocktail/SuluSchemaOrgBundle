@@ -10,7 +10,7 @@ class ExtensionChain
     /**
      * @var ExtensionInterface[]
      */
-    private array $extensions;
+    private array $extensions = [];
 
     public function addExtension(ExtensionInterface $extension): void
     {

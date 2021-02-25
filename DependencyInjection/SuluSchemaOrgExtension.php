@@ -38,7 +38,7 @@ class SuluSchemaOrgExtension extends Extension
         $loader->load('builders.xml');
         $loader->load('transformers.xml');
 
-        if (false === $config['organization']['enabled']) {
+        if (array_key_exists('organization', $config) || false === $config['organization']['enabled']) {
             $container->removeDefinition('sulu.schema_org.analyzer.organization');
         }
     }

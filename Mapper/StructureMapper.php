@@ -69,11 +69,13 @@ class StructureMapper
         if ($structure instanceof StructureBridge) {
             $extensions = $structure->getExt()->toArray();
 
-            if ($model->isMaster() && $this->config) {
-                foreach ($this->config as $ext => $mapping) {
-                    $extensionData = $extensions[$ext];
-                    if ($mapping = $mapping[$model->getSchemaType()] ?? ($mapping['default'] ?? null)) {
-                        $this->extensionMapping($model, $mapping, $extensionData);
+            if ($model->isMaster()) {
+                if ($this->config) {
+                    foreach ($this->config as $ext => $mapping) {
+                        $extensionData = $extensions[$ext];
+                        if ($mapping = $mapping[$model->getSchemaType()] ?? ($mapping['default'] ?? null)) {
+                            $this->extensionMapping($model, $mapping, $extensionData);
+                        }
                     }
                 }
                 $this->creativeEnhancer($model, $structure);

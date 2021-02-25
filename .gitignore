@@ -21,3 +21,6 @@
 # php-cs-fixer
 .phpcs-cache
 php-cs-fixer
+
+#Test
+Tests/Application/var

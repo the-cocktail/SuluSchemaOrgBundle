@@ -29,7 +29,9 @@ class SuluSchemaOrgExtension extends Extension
         if (array_key_exists('organization', $config)) {
             $container->setParameter('sulu.schema_org.config.organization', $config['organization']);
         }
-        $container->setParameter('sulu.schema_org.config.extensions', $config['extensions']);
+        if (array_key_exists('extensions', $config)) {
+            $container->setParameter('sulu.schema_org.config.extensions', $config['extensions']);
+        }
         $container->setParameter('sulu.schema_org.config.image_format', $config['image_format']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));

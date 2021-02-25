@@ -10,7 +10,7 @@
         <service id='sulu.schema_org.structure_mapper' class="TheCocktail\Bundle\SuluSchemaOrgBundle\Mapper\StructureMapper">
             <argument type="service" id="sulu.schema_org.property_mapper"/>
             <argument type="service" id="sulu.schema_org.transformer_chain"/>
-            <argument>%sulu.schema_org.config.extensions%</argument>
+            <argument on-invalid="null">%sulu.schema_org.config.extensions%</argument>
             <tag name="sulu.context" context="website"/>
         </service>
 

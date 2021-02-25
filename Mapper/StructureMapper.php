@@ -29,12 +29,12 @@ class StructureMapper
 {
     private PropertyMapper $propertyMapper;
     private TransformerChain $transformerChain;
-    private array $config;
+    private ?array $config;
 
     public function __construct(
         PropertyMapper $propertyMapper,
         TransformerChain $transformerChain,
-        array $config
+        ?array $config
     ) {
         $this->propertyMapper = $propertyMapper;
         $this->transformerChain = $transformerChain;
@@ -69,7 +69,7 @@ class StructureMapper
         if ($structure instanceof StructureBridge) {
             $extensions = $structure->getExt()->toArray();
 
-            if ($model->isMaster()) {
+            if ($model->isMaster() && $this->config) {
                 foreach ($this->config as $ext => $mapping) {
                     $extensionData = $extensions[$ext];
                     if ($mapping = $mapping[$model->getSchemaType()] ?? ($mapping['default'] ?? null)) {

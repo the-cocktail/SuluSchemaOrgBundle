@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  with this source code in the file LICENSE.
  */
 
-namespace TheCocktail\Bundle\MegaMenuBundle\Tests\Application\AppBundle;
+namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

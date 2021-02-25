@@ -3,5 +3,5 @@ services:
         autowire: true
         autoconfigure: true
 
-    TheCocktail\Bundle\MegaMenuBundle\Tests\Application\DataFixtures\:
+    TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\DataFixtures\:
         resource: '../DataFixtures'

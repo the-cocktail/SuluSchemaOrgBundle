@@ -12,6 +12,8 @@
 
     <file>./</file>
 
+  	<exclude-pattern>/vendor/*</exclude-pattern>
+
     <rule ref="Generic.Files.LineLength">
         <properties>
             <property name="lineLimit" value="160"/>

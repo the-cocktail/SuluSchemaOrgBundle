@@ -29,6 +29,5 @@ class ExtensionChain
                 $extension->extend($baseType, $defined);
             }
         }
-
     }
 }

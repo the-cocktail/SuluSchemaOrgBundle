@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  with this source code in the file LICENSE.
  */
 
-namespace TheCocktail\Bundle\MegaMenuBundle\Tests\Application\AppBundle\DependencyInjection;
+namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\AppBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

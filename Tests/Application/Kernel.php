@@ -11,13 +11,13 @@ declare(strict_types=1);
  *  with this source code in the file LICENSE.
  */
 
-namespace TheCocktail\Bundle\MegaMenuBundle\Tests\Application;
+namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application;
 
 use Sulu\Bundle\AudienceTargetingBundle\SuluAudienceTargetingBundle;
 use Sulu\Bundle\TestBundle\Kernel\SuluTestKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use TheCocktail\Bundle\MegaMenuBundle\SuluMegamenuBundle;
-use TheCocktail\Bundle\MegaMenuBundle\Tests\Application\AppBundle\AppBundle;
+use TheCocktail\Bundle\SuluSchemaOrgBundle\SuluMegamenuBundle;
+use TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\AppBundle\AppBundle;
 
 class Kernel extends SuluTestKernel
 {

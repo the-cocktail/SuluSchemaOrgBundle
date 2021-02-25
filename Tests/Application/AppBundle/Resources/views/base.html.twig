@@ -51,6 +51,10 @@
     {% endblock %}
 </footer>
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <span id="schema">
+        {{ constant('TheCocktail\\Bundle\\SuluSchemaOrgBundle\\Factory\\SchemaOrgFactory::TWIG_KEY')|raw }}
+    </span>
+{% endblock %}
 </body>
 </html>

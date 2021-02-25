@@ -11,7 +11,7 @@ declare(strict_types=1);
  *  with this source code in the file LICENSE.
  */
 
-use TheCocktail\Bundle\MegaMenuBundle\Tests\Application\Kernel;
+use TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\Kernel;
 use Sulu\Component\HttpKernel\SuluKernel;
 use Symfony\Component\HttpFoundation\Request;
 

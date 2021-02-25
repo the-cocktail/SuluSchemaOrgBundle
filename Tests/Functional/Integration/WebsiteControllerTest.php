@@ -1,6 +1,6 @@
 <?php
 
-namespace TheCocktail\Bundle\MegaMenuBundle\Tests\Functional\Integration;
+namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Functional\Integration;
 
 use Sulu\Bundle\TestBundle\Testing\WebsiteTestCase;
 

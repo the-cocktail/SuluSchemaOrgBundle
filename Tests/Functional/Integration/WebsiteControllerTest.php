@@ -21,7 +21,7 @@ class WebsiteControllerTest extends WebsiteTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/');
-        $schema = $crawler->filter('.schema')->text();
+        $schema = $crawler->filter('body')->text();
 
         $this->assertSame($schema, $script);
     }

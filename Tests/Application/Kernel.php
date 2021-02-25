@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of Sulu Megamenu Bundle.
+ * This file is part of Sulu SchemaOrg Bundle.
  *
  * (c) The Cocktail Experience S.L.
  *
@@ -16,7 +16,7 @@ namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application;
 use Sulu\Bundle\AudienceTargetingBundle\SuluAudienceTargetingBundle;
 use Sulu\Bundle\TestBundle\Kernel\SuluTestKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\SuluMegamenuBundle;
+use TheCocktail\Bundle\SuluSchemaOrgBundle\SuluSchemaOrgBundle;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Tests\Application\AppBundle\AppBundle;
 
 class Kernel extends SuluTestKernel
@@ -27,7 +27,7 @@ class Kernel extends SuluTestKernel
     public function registerBundles()
     {
         $bundles = parent::registerBundles();
-        $bundles[] = new SuluMegamenuBundle();
+        $bundles[] = new SuluSchemaOrgBundle();
         $bundles[] = new AppBundle();
 
         foreach ($bundles as $key => $bundle) {

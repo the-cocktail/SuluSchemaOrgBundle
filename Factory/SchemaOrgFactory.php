@@ -1,17 +1,22 @@
 <?php
 
+/**
+ * This file is part of Sulu SchemaOrg Bundle.
+ *
+ * (c) The Cocktail Experience S.L.
+ *
+ *  This source file is subject to the MIT license that is bundled
+ *  with this source code in the file LICENSE.
+ */
+
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Factory;
 
 use Spatie\SchemaOrg\BaseType;
-use Spatie\SchemaOrg\Contracts\OrganizationContract;
-use Spatie\SchemaOrg\EducationalOrganization;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Analyzer\SchemaOrgAnalyzerInterface;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\BuilderInterface;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Extension\ExtensionChain;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\HttpFoundation\SchemaAttributes;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Mapper\AutoMapper;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Mapper\StructureMapper;
 
 class SchemaOrgFactory

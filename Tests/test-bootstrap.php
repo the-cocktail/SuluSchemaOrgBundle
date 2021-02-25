@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Sulu Megamenu Bundle.
+ * This file is part of Sulu SchemaOrg Bundle.
  *
  * (c) The Cocktail Experience S.L.
  *

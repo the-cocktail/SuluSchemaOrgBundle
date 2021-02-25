@@ -35,8 +35,7 @@ class StructureMapper
         PropertyMapper $propertyMapper,
         TransformerChain $transformerChain,
         ?array $configExtensions
-    )
-    {
+    ) {
         $this->propertyMapper = $propertyMapper;
         $this->transformerChain = $transformerChain;
         $this->configExtensions = $configExtensions ?? [];

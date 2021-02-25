@@ -17,12 +17,13 @@ class WebsiteControllerTest extends WebsiteTestCase
 
     public function testExpectedScript(): void
     {
-        $script = '<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebSite","name":"Hompage","url":"\/"}</script>';
+        // Not complete script because date
+        $script = '<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebSite","name":"Homepage","url":"\/"';
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/');
         $schema = $crawler->filter('.schema')->html();
 
-        $this->assertSame($schema, $script);
+        $this->assertStringContainsString($script, $schema);
     }
 }

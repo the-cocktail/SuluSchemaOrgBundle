@@ -95,7 +95,3 @@ sulu_search:
     resource: "@SuluSearchBundle/Resources/config/routing.yml"
     prefix: /admin/search
 
-sulu_megamenu_api:
-    resource: "@SuluMegamenuBundle/Resources/config/routing_api.yaml"
-    type: rest
-    prefix: /admin/api

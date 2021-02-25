@@ -29,16 +29,17 @@ class StructureMapper
 {
     private PropertyMapper $propertyMapper;
     private TransformerChain $transformerChain;
-    private ?array $config;
+    private array $configExtensions;
 
     public function __construct(
         PropertyMapper $propertyMapper,
         TransformerChain $transformerChain,
-        ?array $config
-    ) {
+        ?array $configExtensions
+    )
+    {
         $this->propertyMapper = $propertyMapper;
         $this->transformerChain = $transformerChain;
-        $this->config = $config;
+        $this->configExtensions = $configExtensions ?? [];
     }
 
     /**
@@ -70,12 +71,10 @@ class StructureMapper
             $extensions = $structure->getExt()->toArray();
 
             if ($model->isMaster()) {
-                if ($this->config) {
-                    foreach ($this->config as $ext => $mapping) {
-                        $extensionData = $extensions[$ext];
-                        if ($mapping = $mapping[$model->getSchemaType()] ?? ($mapping['default'] ?? null)) {
-                            $this->extensionMapping($model, $mapping, $extensionData);
-                        }
+                foreach ($this->configExtensions as $ext => $mapping) {
+                    $extensionData = $extensions[$ext];
+                    if ($mapping = $mapping[$model->getSchemaType()] ?? ($mapping['default'] ?? null)) {
+                        $this->extensionMapping($model, $mapping, $extensionData);
                     }
                 }
                 $this->creativeEnhancer($model, $structure);

@@ -8,7 +8,7 @@
     <view>pages/default</view>
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
     <cacheLifetime>604800</cacheLifetime>
-    <tag name="sulu.schema_org" itemtype="WebPage"/>
+    <tag name="sulu.schema_org" itemtype="WebSite"/>
 
     <meta>
         <title lang="en">Default</title>

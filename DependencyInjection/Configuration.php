@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('image_format')->defaultValue("sulu-240x")->end()
+                ->scalarNode('image_format')->isRequired()->defaultValue("sulu-240x")->end()
             ->end()
             ->append($this->addExtensionsMapping())
             ->append($this->addOrganizationConfig())

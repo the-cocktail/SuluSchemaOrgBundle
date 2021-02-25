@@ -45,5 +45,4 @@ class DataCollectorSubscriber implements EventSubscriberInterface
 
         $this->factory->build($request, $response);
     }
-
 }

@@ -20,7 +20,7 @@
     "require": {
         "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.0 || ^2.0 || ^3.0",
-        "spatie/schema-org": "^2.13",
+        "spatie/schema-org": "^2.13 || ^3.0",
         "sulu/sulu": "^2.1",
         "symfony/config": "^4.3 || ^5.1",
         "symfony/dependency-injection": "^4.3 || ^5.1",

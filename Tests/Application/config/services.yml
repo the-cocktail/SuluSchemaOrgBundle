@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    TheCocktail\Bundle\MegaMenuBundle\Tests\Application\DataFixtures\:
+        resource: '../DataFixtures'

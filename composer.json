@@ -12,11 +12,16 @@
             "/Tests/"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "TheCocktail\\Bundle\\SuluSchemaOrgBundle\\Tests\\": "Tests"
+        }
+    },
     "require": {
         "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.0 || ^2.0 || ^3.0",
         "spatie/schema-org": "^2.13",
-        "sulu/sulu": "^2.0.6",
+        "sulu/sulu": "^2.1",
         "symfony/config": "^4.3 || ^5.1",
         "symfony/dependency-injection": "^4.3 || ^5.1",
         "symfony/http-foundation": "^4.3 || ^5.1",
@@ -25,9 +30,14 @@
     },
     "require-dev": {
         "jackalope/jackalope-doctrine-dbal": "^1.4.1",
-        "phpstan/phpstan": "^0.12.25",
-        "phpstan/phpstan-symfony": "^0.12.6",
-        "squizlabs/php_codesniffer": "^3.5"
+        "phpstan/phpstan": "^0.12.18",
+        "phpstan/phpstan-doctrine": "^0.12.10",
+        "phpstan/phpstan-phpunit": "^0.12.6",
+        "phpstan/phpstan-symfony": "^0.12.4",
+        "phpunit/phpunit": "^8.5 || ^9.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symfony/browser-kit": "^5.2",
+        "symfony/dotenv": "^4.3 || ^5.0"
     },
     "authors": [
         {

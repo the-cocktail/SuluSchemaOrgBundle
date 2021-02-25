@@ -1,0 +1,8 @@
+services:
+    fixture.header:
+        class: TheCocktail\Bundle\MegaMenuBundle\Tests\Application\AppBundle\DataFixtures\ORM\HeaderMenuFixture
+        tags: { name: 'doctrine.fixture.orm' }
+
+    fixture.footer:
+        class: TheCocktail\Bundle\MegaMenuBundle\Tests\Application\AppBundle\DataFixtures\ORM\FooterMenuFixture
+        tags: { name: 'doctrine.fixture.orm' }

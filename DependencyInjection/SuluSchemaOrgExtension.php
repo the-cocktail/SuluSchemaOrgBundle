@@ -42,6 +42,7 @@ class SuluSchemaOrgExtension extends Extension
 
         if (!array_key_exists('organization', $config) || false === $config['organization']['enabled']) {
             $container->removeDefinition('sulu.schema_org.analyzer.organization');
+            $container->removeDefinition('sulu.schema_org.organization_builder');
         }
     }
 }

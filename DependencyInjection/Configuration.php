@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of Sulu SchemaOrg Bundle.
+ *
+ * (c) The Cocktail Experience S.L.
+ *
+ *  This source file is subject to the MIT license that is bundled
+ *  with this source code in the file LICENSE.
+ */
+
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -17,7 +26,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('image_format')->defaultValue("sulu-240x")->end()
+                ->scalarNode('image_format')->isRequired()->defaultValue("sulu-240x")->end()
             ->end()
             ->append($this->addExtensionsMapping())
             ->append($this->addOrganizationConfig())

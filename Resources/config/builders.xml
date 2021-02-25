@@ -8,7 +8,7 @@
             <tag name="sulu.context" context="website"/>
         </service>
 
-        <service id="TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\OrganizationBuilder">
+        <service id="sulu.schema_org.organization_builder" class="TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\OrganizationBuilder">
             <argument>%sulu.schema_org.config.organization%</argument>
             <tag name="sulu.schema_org.builder" priority="255"/>
             <tag name="sulu.context" context="website"/>

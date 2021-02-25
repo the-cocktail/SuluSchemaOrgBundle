@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * This file is part of Sulu SchemaOrg Bundle.
+ *
+ * (c) The Cocktail Experience S.L.
+ *
+ *  This source file is subject to the MIT license that is bundled
+ *  with this source code in the file LICENSE.
+ */
+
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Analyzer;
 
-use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
-use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\Builder\OrganizationBuilder;
 use TheCocktail\Bundle\SuluSchemaOrgBundle\HttpFoundation\SchemaAttributes;
 use Sulu\Bundle\ContactBundle\Entity\AccountRepositoryInterface;

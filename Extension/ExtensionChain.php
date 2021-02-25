@@ -1,9 +1,17 @@
 <?php
 
+/**
+ * This file is part of Sulu SchemaOrg Bundle.
+ *
+ * (c) The Cocktail Experience S.L.
+ *
+ *  This source file is subject to the MIT license that is bundled
+ *  with this source code in the file LICENSE.
+ */
+
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\Extension;
 
 use Spatie\SchemaOrg\BaseType;
-use TheCocktail\Bundle\SuluSchemaOrgBundle\Extension\ExtensionInterface;
 
 class ExtensionChain
 {
@@ -29,6 +37,5 @@ class ExtensionChain
                 $extension->extend($baseType, $defined);
             }
         }
-
     }
 }

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of Sulu SchemaOrg Bundle.
+ *
+ * (c) The Cocktail Experience S.L.
+ *
+ *  This source file is subject to the MIT license that is bundled
+ *  with this source code in the file LICENSE.
+ */
+
 namespace TheCocktail\Bundle\SuluSchemaOrgBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
@@ -20,7 +29,9 @@ class SuluSchemaOrgExtension extends Extension
         if (array_key_exists('organization', $config)) {
             $container->setParameter('sulu.schema_org.config.organization', $config['organization']);
         }
-        $container->setParameter('sulu.schema_org.config.extensions', $config['extensions']);
+        if (array_key_exists('extensions', $config)) {
+            $container->setParameter('sulu.schema_org.config.extensions', $config['extensions']);
+        }
         $container->setParameter('sulu.schema_org.config.image_format', $config['image_format']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
@@ -29,8 +40,9 @@ class SuluSchemaOrgExtension extends Extension
         $loader->load('builders.xml');
         $loader->load('transformers.xml');
 
-        if (false === $config['organization']['enabled']) {
+        if (!array_key_exists('organization', $config) || false === $config['organization']['enabled']) {
             $container->removeDefinition('sulu.schema_org.analyzer.organization');
+            $container->removeDefinition('sulu.schema_org.organization_builder');
         }
     }
 }

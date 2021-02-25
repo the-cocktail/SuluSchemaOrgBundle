@@ -1,0 +1,5 @@
+swiftmailer:
+    disable_delivery:  true
+
+sulu_schema_org:
+    image_format: "sulu-240x"

@@ -42,6 +42,10 @@ class MediaTransformer implements TransformerInterface
         }
 
         $formats = $this->mediaManager->getFormatUrls([$id], $request->getLocale());
+        
+        if (!array_key_exists($id, $formats)) {
+            return '';
+        }
 
         if (!array_key_exists($this->imageFormat, $formats[$id])) {
             $formats = implode(",", array_keys($formats[$id]));

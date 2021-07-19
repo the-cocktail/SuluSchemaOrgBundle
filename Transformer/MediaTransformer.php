@@ -32,7 +32,7 @@ class MediaTransformer implements TransformerInterface
 
     public function transform($value): string
     {
-        if (empty($ids = $value['ids'])) {
+        if (!$value || empty($ids = $value['ids'])) {
             return '';
         }
         $id = reset($ids);
